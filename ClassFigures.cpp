@@ -45,7 +45,7 @@ public:
 
 class Square : public Shape {
 private:
-    double x, y, side; // top-left corner (or any reference) + side length
+    double x, y, side;
 public:
     Square(double _x, double _y, double _side)
         : x(_x), y(_y), side(_side) {}
@@ -274,9 +274,9 @@ public:
 int main() {
     ShapeStorage storage;
 
-    storage.addShape(new Rectangle(0.0, 0.0, 4.0, 3.0)); // area 12
-    storage.addShape(new Circle(1.0, 1.0, 2.0));        // area ~12.5664
-    storage.addShape(new Square(5.0, 5.0, 2.0));        // area 4
+    storage.addShape(new Rectangle(0.0, 0.0, 4.0, 3.0));
+    storage.addShape(new Circle(1.0, 1.0, 2.0));
+    storage.addShape(new Square(5.0, 5.0, 2.0));
 
     cout << "After initial additions:\n";
     storage.printAll();
@@ -317,10 +317,8 @@ int main() {
     cout << '\n';
 
     cout << "Clearing all shapes by removing indices until empty...\n";
-    // remove from end to start to be safe
     for (;;) {
-        // We'll attempt to remove index 0 until empty
-        Shape* maybe = storage.maxArea(); // just to check if empty quickly
+        Shape* maybe = storage.maxArea();
         if (!maybe) break;
         storage.removeAt(0);
     }
