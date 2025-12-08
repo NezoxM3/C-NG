@@ -37,7 +37,6 @@ public:
         questions.push_back(make_shared<Question>(q));
     }
 
-    // ---------- SAVE TEST ----------
     void saveToFile(const string& filename) {
         ofstream out(filename);
         out << name << "\n";
@@ -51,7 +50,6 @@ public:
         out.close();
     }
 
-    // ---------- LOAD TEST ----------
     static shared_ptr<Test> loadFromFile(const string& filename) {
         ifstream in(filename);
         if (!in.is_open()) return nullptr;
